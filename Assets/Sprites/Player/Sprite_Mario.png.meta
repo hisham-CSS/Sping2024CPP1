@@ -278,7 +278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_8
+      name: MarioJump
       rect:
         serializedVersion: 2
         x: 144
@@ -1402,6 +1402,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       MarioIdle: 876578130
+      MarioJump: -1924992549
       MarioWalk1: 505353192
       MarioWalk2: 1057032807
       Sprite_Mario_10: 1109652005
@@ -1460,7 +1461,6 @@ TextureImporter:
       Sprite_Mario_6: -899636386
       Sprite_Mario_60: -114991399
       Sprite_Mario_7: 1026477645
-      Sprite_Mario_8: -1924992549
       Sprite_Mario_9: -675476143
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
