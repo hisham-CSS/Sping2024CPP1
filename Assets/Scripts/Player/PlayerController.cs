@@ -63,23 +63,43 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AnimatorClipInfo[] curPlayingClips = anim.GetCurrentAnimatorClipInfo(0);
         float xInput = Input.GetAxis("Horizontal");
+        
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, isGroundLayer);
-        Vector2 moveDirection = new Vector2(xInput * speed, rb.velocity.y);
-        rb.velocity = moveDirection;
-        if (Input.GetButtonDown("Jump") && isGrounded)
+
+        //animation checks for physics
+        if (curPlayingClips.Length > 0)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            if (curPlayingClips[0].clip.name == "Attack")
+                rb.velocity = Vector2.zero;
+            else
+            {
+                Vector2 moveDirection = new Vector2(xInput * speed, rb.velocity.y);
+                rb.velocity = moveDirection;
+            }
         }
+        
+        //Input checks
+        if (Input.GetButtonDown("Jump") && isGrounded)
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+        if (Input.GetButtonDown("Jump") && !isGrounded)
+            anim.SetTrigger("JumpAttack");
+
+        if (Input.GetButtonDown("Fire1"))
+            anim.SetTrigger("Attack");
+
         //Sprite Flipping
         if (xInput != 0) sr.flipX = (xInput < 0);
 
+        //setting specific animation variables
         anim.SetFloat("speed", Mathf.Abs(xInput));
         anim.SetBool("isGrounded", isGrounded);
+    }
 
-        //if (xInput > 0 && sr.flipX || xInput < 0 && !sr.flipX)
-        //{
-        //    sr.flipX = !sr.flipX;
-        //}
+    public void IncreaseGravity()
+    {
+        rb.gravityScale = 10;
     }
 }
