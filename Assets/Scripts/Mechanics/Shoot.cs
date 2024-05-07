@@ -38,7 +38,7 @@ public class Shoot : MonoBehaviour
         else
         {
             Projectile curProjectile = Instantiate(projectilePrefab, spawnPointLeft.position, spawnPointLeft.rotation);
-            curProjectile.xVel = xVel;
+            curProjectile.xVel = -xVel;
             curProjectile.yVel = yVel;
         }
 
