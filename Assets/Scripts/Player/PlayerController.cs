@@ -46,19 +46,19 @@ public class PlayerController : MonoBehaviour
     public void PowerupValueChange(Pickup.PickupType type)
     {
         if (type == Pickup.PickupType.PowerupSpeed)
-            FillSpecificCoroutineVar(ref speedChange, type);
+            FillSpecificCoroutineVar(ref speedChange,ref speed, type);
 
         if (type == Pickup.PickupType.PowerupJump)
-            FillSpecificCoroutineVar(ref jumpForceChange, type);
+            FillSpecificCoroutineVar(ref jumpForceChange,ref jumpForce, type);
     }
 
-    void FillSpecificCoroutineVar(ref Coroutine inVar, Pickup.PickupType type)
+    void FillSpecificCoroutineVar(ref Coroutine inVar, ref int varToChange, Pickup.PickupType type)
     {
         if (inVar != null)
         {
             StopCoroutine(inVar);
             inVar = null;
-            jumpForce /= 2;
+            varToChange /= 2;
             inVar = StartCoroutine(ValueChangeCoroutine(type));
             return;
         }
@@ -73,11 +73,17 @@ public class PlayerController : MonoBehaviour
             jumpForce *= 2;
         
         yield return new WaitForSeconds(2.0f);
-       
+
         if (type == Pickup.PickupType.PowerupSpeed)
+        {
             speed /= 2;
+            speedChange = null;
+        }
         if (type == Pickup.PickupType.PowerupJump)
+        {
             jumpForce /= 2;
+            jumpForceChange = null;
+        }
     }
 
     // Start is called before the first frame update
