@@ -139,7 +139,7 @@ TextureImporter:
         width: 7
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,6 +147,300 @@ TextureImporter:
       bones: []
       spriteID: 430cc02c8d2d48143a2e742db429cd67
       internalID: -1851320088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turret1
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 312
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be85ec6cffc375646b60b59defcfb34b
+      internalID: 2002419024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turret2
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 312
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c991b85d2b5501347a88e15a0411796b
+      internalID: 809400109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turret3
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 312
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab9f605863611e4cbf626c4ca3fdd17
+      internalID: -862928331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turret4
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 312
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27d79026275d6f04fb5ad0bab8eb059f
+      internalID: 353721520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KoopaWalk1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 123
+        width: 16
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fbaea9aeb711494eb6fe7a135d4933e
+      internalID: 1380195771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KoopaWalk2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 123
+        width: 16
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70296fa8d08433498b89f47ae2ef4cf
+      internalID: -1005688637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KoopaTurnAround
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 123
+        width: 16
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e634a1623c4552a44bd1cb0e9ff92263
+      internalID: -1796276648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KoopaSquish
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 120
+        width: 16
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b4110dd6be0d02439bd567831779d9d
+      internalID: -466713391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KoopaDeath
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 137
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f47337d46876e4c9cf433f7f78858b
+      internalID: -1145414658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretDeath1
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 359
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a0c9cc41525af74eb31b04d25c625ec
+      internalID: 2091308786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretDeath2
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 360
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c3cfa997a19a7448a76ca0ca16a5255
+      internalID: -1493634994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretDeath3
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 361
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a6cf0a9ca8da504c92dc0b4da80d105
+      internalID: 1853515447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretDeath4
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 362
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8707730991909f7489951abc6bf2ca01
+      internalID: -978316761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretDeath5
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 259
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5534bffc54feb0468b3285acfdc91e3
+      internalID: 2110349496
       vertices: []
       indices: 
       edges: []
@@ -163,7 +457,21 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       EnemyProjectile: -1851320088
+      KoopaDeath: -1145414658
+      KoopaSquish: -466713391
+      KoopaTurnAround: -1796276648
+      KoopaWalk1: 1380195771
+      KoopaWalk2: -1005688637
       PlayerProjectile: 1423544264
+      Turret1: 2002419024
+      Turret2: 809400109
+      Turret3: -862928331
+      Turret4: 353721520
+      TurretDeath1: 2091308786
+      TurretDeath2: -1493634994
+      TurretDeath3: 1853515447
+      TurretDeath4: -978316761
+      TurretDeath5: 2110349496
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
