@@ -19,12 +19,10 @@ public class Pickup : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            PlayerController pc = collision.GetComponent<PlayerController>();
-
             switch (type)
             {
                 case PickupType.Life:
-                    pc.lives++;
+                    GameManager.Instance.lives++;
                     break;
                 case PickupType.Score:
                     Debug.Log("I should be changing some sort of variable!");
@@ -32,7 +30,7 @@ public class Pickup : MonoBehaviour
                 case PickupType.PowerupSpeed:
                 case PickupType.PowerupJump:
                     //do some powerup things
-                    pc.PowerupValueChange(type);
+                    GameManager.Instance.PlayerInstance.PowerupValueChange(type);
                     Debug.Log("I should be doing power up things!");
                     break;
             }

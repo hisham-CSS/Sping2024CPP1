@@ -8,21 +8,21 @@ public class PlayerController : MonoBehaviour
     public bool TestMode;
 
     //Player Gameplay Variables
-    private int _lives;
-    public int lives
-    {
-        get => _lives;
-        set 
-        {
-            if (value <= 0) GameOver();
-            if (value < _lives) Respawn();
-            if (value > maxLives) value = maxLives;
-            _lives = value;
+    //private int _lives;
+    //public int lives
+    //{
+    //    get => _lives;
+    //    set 
+    //    {
+    //        if (value <= 0) GameOver();
+    //        if (value < _lives) Respawn();
+    //        if (value > maxLives) value = maxLives;
+    //        _lives = value;
 
-            Debug.Log($"Lives have been set to {_lives}");
-            //broadcast can happen here
-        }
-    }
+    //        Debug.Log($"Lives have been set to {_lives}");
+    //        //broadcast can happen here
+    //    }
+    //}
 
     [SerializeField] private int maxLives = 5;
 
@@ -128,11 +128,7 @@ public class PlayerController : MonoBehaviour
             if (TestMode) Debug.Log("Ground Check Transform Created via Code - Did you forget to assign it in the inspector?");
         } 
 
-        if (maxLives <= 0)
-        {
-            maxLives = 5;
-        }
-        lives = maxLives;
+        
     }
     // Update is called once per frame
     void Update()
