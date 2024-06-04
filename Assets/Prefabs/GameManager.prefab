@@ -44,5 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0cd7c4e2dbfc1240a770c8ed8a342ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnLifeValueChange:
+    m_PersistentCalls:
+      m_Calls: []
   maxLives: 5
   playerPrefab: {fileID: 6519814121564018852, guid: 80f01ae5aca12d14f88a1f002edf1205, type: 3}
