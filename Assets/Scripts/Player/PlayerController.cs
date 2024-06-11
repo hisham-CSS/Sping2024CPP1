@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer), typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
 public class PlayerController : MonoBehaviour
 { 
     public bool TestMode;
@@ -36,9 +37,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask isGroundLayer;
     [SerializeField] private float groundCheckRadius;
 
+    //Audio Clips
+    [SerializeField] private AudioClip jumpClip;
+    [SerializeField] private AudioClip stompClip;
+
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator anim;
+    private AudioSource audioSource;
 
     private Coroutine jumpForceChange = null;
     private Coroutine speedChange = null;
@@ -92,6 +98,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
         if (speed <= 0)
         {
@@ -153,10 +160,13 @@ public class PlayerController : MonoBehaviour
                     anim.SetTrigger("Attack");
             }
         }
-        
+
         //Input checks
         if (Input.GetButtonDown("Jump") && isGrounded)
+        {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            audioSource.PlayOneShot(jumpClip);
+        }
 
         if (Input.GetButtonDown("Jump") && !isGrounded)
             anim.SetTrigger("JumpAttack");
@@ -190,6 +200,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Squish"))
         {
+            Destroy(collision.gameObject);
+            audioSource.PlayOneShot(stompClip);
             collision.transform.parent.GetComponent<Enemy>().TakeDamage(9999);
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);

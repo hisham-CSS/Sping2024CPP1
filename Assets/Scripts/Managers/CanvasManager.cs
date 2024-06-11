@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Audio;
 using System;
 
 public class CanvasManager : MonoBehaviour
 {
+    public AudioMixer audioMixer;
+
     [Header("Button")]
     public Button playButton;
     public Button settingsButton;
@@ -22,15 +25,24 @@ public class CanvasManager : MonoBehaviour
 
     [Header("Text")]
     public TMP_Text livesText;
-    public TMP_Text volSliderText;
+    public TMP_Text masterVolSliderText;
+    public TMP_Text musicVolSliderText;
+    public TMP_Text sfxVolSliderText;
 
     [Header("Slider")]
-    public Slider volSlider;
+    public Slider masterVolSlider;
+    public Slider musicVolSlider;
+    public Slider sfxVolSlider;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        float x = Mathf.Log10(5) * 20.0f;
+        float y = Mathf.Pow(10, x) / 20.0f;
+        Debug.Log(x);
+        Debug.Log(y);
+
         if (quitButton)
             quitButton.onClick.AddListener(Quit);
 
@@ -49,11 +61,17 @@ public class CanvasManager : MonoBehaviour
         if (backButton)
             backButton.onClick.AddListener(() => SetMenus(mainMenu, settingsMenu));
 
-        if (volSlider)
+        if (masterVolSlider)
         {
-            volSlider.onValueChanged.AddListener(OnSliderValueChanged);
-            if (volSliderText)
-                volSliderText.text = volSlider.value.ToString();
+            SetupSliderInfo(masterVolSlider, masterVolSliderText, "MasterVol");
+        }
+        if (musicVolSlider) 
+        {
+            SetupSliderInfo(musicVolSlider, musicVolSliderText, "MusicVol");
+        }
+        if (sfxVolSlider) 
+        {
+            SetupSliderInfo(sfxVolSlider, sfxVolSliderText, "SFXVol");
         }
 
         if (livesText)
@@ -64,10 +82,25 @@ public class CanvasManager : MonoBehaviour
 
     }
 
-    void OnSliderValueChanged(float value)
+    void SetupSliderInfo(Slider mySlider, TMP_Text sliderText, string parameterName)
+    { 
+        mySlider.onValueChanged.AddListener((value) => OnSliderValueChanged(value, sliderText, parameterName, mySlider));
+        float newVal = (mySlider.value == 0.0f) ? -80.0f : 20.0f * Mathf.Log10(mySlider.value);
+        audioMixer.SetFloat(parameterName, newVal);
+
+
+        if (sliderText)
+            sliderText.text = (newVal == -80.0f) ? "0%" : (int)(mySlider.value * 10) + "%";
+    }
+
+    void OnSliderValueChanged(float value, TMP_Text volSliderText, string mixerParameterName, Slider mySlider)
     {
+
+        value = (value == 0.0f) ? -80.0f : 20.0f * Mathf.Log10(value);
         if (volSliderText)
-            volSliderText.text = value.ToString();
+            volSliderText.text = (value == -80.0f) ? "0%" : (int)(mySlider.value * 10) + "%"; 
+
+        audioMixer.SetFloat(mixerParameterName, value);
     }
 
     void OnLifeValueChanged(int value)

@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Pickup : MonoBehaviour
 {
+
+    AudioSource audioSource;
+
     public enum PickupType
     {
         Life, 
@@ -14,6 +18,11 @@ public class Pickup : MonoBehaviour
     }
 
     [SerializeField] private PickupType type;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -35,7 +44,9 @@ public class Pickup : MonoBehaviour
                     break;
             }
 
-            Destroy(gameObject);
+            GetComponent<SpriteRenderer>().enabled = false;
+            Destroy(gameObject, audioSource.clip.length);
+            audioSource.Play();
         }
     }
 }
